@@ -28,6 +28,9 @@ export default function Navbar(props) {
                             <Link to="/counter" className="nav-link">Counter</Link>
                         </li>
                         <li className="nav-item">
+                            <Link to="/todos" className="nav-link">Todos</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link to="/weather" className="nav-link">Weather App</Link>
                         </li>
                         <form className="d-flex ms-2" role="search" onSubmit={handleNewsTopicFromSubmit}>

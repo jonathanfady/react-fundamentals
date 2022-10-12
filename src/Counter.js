@@ -1,28 +1,33 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
+
+function reducer(state, action) {
+    if (action == 'increment')
+        return { count: state.count + 1 };
+    else if (action == 'decrement')
+        return { count: state.count - 1 };
+    else
+        return state;
+}
 
 function Counter(props) {
-    const [counter, setCounter] = useState(props.startAt);
+    const [state, dispatch] = useReducer(reducer, { count: 0 });
 
-    function countUp(e) {
-        setCounter(counter + props.countBy);
+    function increment() {
+        dispatch('increment');
     }
 
-    function countDown() {
-        setCounter(counter - props.countBy);
+    function decrement() {
+        dispatch('decrement');
     }
 
     return (
-        <>
-            <div className="row justify-content-center g-2">
-                <div className="col-6">
-                    <p>Start at: {props.startAt}</p>
-                    <p>Count by: {props.countBy}</p>
-                    <h1 className="display-4">{counter}</h1>
-                    <button className="btn btn-outline-primary" onClick={countUp}>Count Up</button>
-                    <button className="btn btn-outline-secondary ms-2" onClick={countDown}>Count Down</button>
-                </div>
+        <div className="container text-center mt-3">
+            <div className="d-flex flex-row justify-content-center ">
+                <button className="px-4 btn btn-lg rounded-0 btn-outline-secondary" onClick={decrement}>-</button>
+                <div className="px-4 h1">{state.count}</div>
+                <button className="px-4 btn btn-lg rounded-0 btn-outline-primary" onClick={increment}>+</button>
             </div>
-        </>
+        </div>
     )
 }
 
