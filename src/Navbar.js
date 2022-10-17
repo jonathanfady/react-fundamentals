@@ -33,13 +33,16 @@ export default function Navbar(props) {
                         <li className="nav-item">
                             <Link to="/weather" className="nav-link">Weather App</Link>
                         </li>
-                        <form className="d-flex ms-2" role="search" onSubmit={handleNewsTopicFromSubmit}>
+                        <form className="d-flex mx-2" role="search" onSubmit={handleNewsTopicFromSubmit}>
                             <div className="input-group border border-2 rounded border-primary">
                                 <span className="input-group-text text-primary" id="basic-addon1">Search the news</span>
                                 <input className="form-control" type="text" placeholder="News topic" aria-label="Search" ref={newsTopic} onChange={handleNewsTopicChange} />
                                 <Link id="newsTopicLink" to={`/news/${news}`} className="btn btn-light"><i className="bi bi-search text-primary"></i></Link>
                             </div>
                         </form>
+                        <li className="nav-item">
+                            <Link to="/calculator" className="nav-link">Calculator App</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

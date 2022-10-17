@@ -11,6 +11,7 @@ import Counter from './Counter';
 import Todos from './Todos';
 import WeatherApp from './WeatherApp';
 import News from './News';
+import Calculator from './Calculator/Calculator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -26,6 +27,7 @@ root.render(
                     <Route path="/news">
                         <Route path=":newsTopic" element={<News />} />
                     </Route>
+                    <Route path="/calculator" element={<Calculator />} />
                 </Route>
             </Routes>
         </Router>
