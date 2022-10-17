@@ -1,24 +1,19 @@
-import { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { toKebab } from './Cases';
 
 export default function Navbar(props) {
-    const [news, setNews] = useState('');
-    const newsTopic = useRef(null);
+    const newsTopic = useRef();
+    const navigate = useNavigate();
 
     function handleNewsTopicFormSubmit(e) {
         e.preventDefault();
-        document.getElementById('newsTopicLink').click();
     }
 
-    function handleNewsTopicChange() {
-        setNews(toKebab(newsTopic.current.value));
-    }
-
-    function handleNewsTopicLinkClick() {
+    function handleNewsTopicButtonClick() {
+        navigate(`/news/${toKebab(newsTopic.current.value || "")}`);
         newsTopic.current.value = "";
         newsTopic.current.focus();
-        setNews("");
     }
 
     return (
@@ -42,8 +37,10 @@ export default function Navbar(props) {
                         <form className="d-flex mx-2" role="search" onSubmit={handleNewsTopicFormSubmit}>
                             <div className="input-group border border-3 border-primary rounded-3">
                                 <Link to="/news" className="btn btn-secondary rounded-start"><i className="bi bi-newspaper text-light"></i></Link>
-                                <input className="form-control" type="text" placeholder="Search the news" aria-label="Search" ref={newsTopic} onChange={handleNewsTopicChange} />
-                                <Link id="newsTopicLink" to={`/news/${news}`} className="btn btn-secondary rounded-end" onClick={handleNewsTopicLinkClick}><i className="bi bi-search text-light"></i></Link>
+                                <input ref={newsTopic} className="form-control" type="text" placeholder="Search the news" aria-label="Search" />
+                                <button className="btn btn-secondary rounded-end" onClick={handleNewsTopicButtonClick}>
+                                    <i className="bi bi-search text-light"></i>
+                                </button>
                             </div>
                         </form>
                         <li className="nav-item">
