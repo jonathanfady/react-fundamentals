@@ -6,13 +6,19 @@ export default function Navbar(props) {
     const [news, setNews] = useState('');
     const newsTopic = useRef(null);
 
-    function handleNewsTopicFromSubmit(e) {
+    function handleNewsTopicFormSubmit(e) {
         e.preventDefault();
         document.getElementById('newsTopicLink').click();
     }
 
     function handleNewsTopicChange() {
         setNews(toKebab(newsTopic.current.value));
+    }
+
+    function handleNewsTopicLinkClick() {
+        newsTopic.current.value = "";
+        newsTopic.current.focus();
+        setNews("");
     }
 
     return (
@@ -25,27 +31,27 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to="/counter" className="nav-link">Counter</Link>
+                            <Link to="/counter" className="nav-link"><i className="bi bi-plus-slash-minus"></i> Counter</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/todos" className="nav-link">Todos</Link>
+                            <Link to="/todos" className="nav-link"><i className="bi bi-card-checklist"></i> Todos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/weather" className="nav-link">Weather App</Link>
+                            <Link to="/weather" className="nav-link"><i className="bi bi-cloud-sun"></i> Weather</Link>
                         </li>
-                        <form className="d-flex mx-2" role="search" onSubmit={handleNewsTopicFromSubmit}>
-                            <div className="input-group border border-2 rounded border-primary">
-                                <span className="input-group-text text-primary" id="basic-addon1">Search the news</span>
-                                <input className="form-control" type="text" placeholder="News topic" aria-label="Search" ref={newsTopic} onChange={handleNewsTopicChange} />
-                                <Link id="newsTopicLink" to={`/news/${news}`} className="btn btn-light"><i className="bi bi-search text-primary"></i></Link>
+                        <form className="d-flex mx-2" role="search" onSubmit={handleNewsTopicFormSubmit}>
+                            <div className="input-group border border-3 border-primary rounded-3">
+                                <Link to="/news" className="btn btn-secondary rounded-start"><i className="bi bi-newspaper text-light"></i></Link>
+                                <input className="form-control" type="text" placeholder="Search the news" aria-label="Search" ref={newsTopic} onChange={handleNewsTopicChange} />
+                                <Link id="newsTopicLink" to={`/news/${news}`} className="btn btn-secondary rounded-end" onClick={handleNewsTopicLinkClick}><i className="bi bi-search text-light"></i></Link>
                             </div>
                         </form>
                         <li className="nav-item">
-                            <Link to="/calculator" className="nav-link">Calculator App</Link>
+                            <Link to="/calculator" className="nav-link"><i className="bi bi-calculator"></i> Calculator</Link>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav >
     )
 }

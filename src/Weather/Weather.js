@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import WeatherWidget from './WeatherWidgetClass';
+import WeatherWidget from './WeatherWidget';
 
 function WeatherApp() {
     const [location, setLocation] = useState('');

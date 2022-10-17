@@ -8,8 +8,8 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import App from './App';
 import Home from './Home';
 import Counter from './Counter';
-import Todos from './Todos';
-import WeatherApp from './WeatherApp';
+import Todos from './Todos/Todos';
+import Weather from './Weather/Weather';
 import News from './News';
 import Calculator from './Calculator/Calculator';
 
@@ -23,8 +23,8 @@ root.render(
                     <Route path="/" element={<Home />} />
                     <Route path="/counter" element={<Counter />} />
                     <Route path="/todos" element={<Todos />} />
-                    <Route path="/weather" element={<WeatherApp />} />
-                    <Route path="/news">
+                    <Route path="/weather" element={<Weather />} />
+                    <Route path="/news" element={<News />} >
                         <Route path=":newsTopic" element={<News />} />
                     </Route>
                     <Route path="/calculator" element={<Calculator />} />
