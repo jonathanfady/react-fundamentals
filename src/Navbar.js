@@ -6,8 +6,10 @@ export default function Navbar(props) {
     const newsTopic = useRef();
     const navigate = useNavigate();
 
-    function handleNewsTopicFormSubmit(e) {
-        e.preventDefault();
+    function handleNewsTopicInputKeyUp(e) {
+        if (e.key === "Enter") {
+            handleNewsTopicButtonClick();
+        }
     }
 
     function handleNewsTopicButtonClick() {
@@ -34,15 +36,15 @@ export default function Navbar(props) {
                         <li className="nav-item">
                             <Link to="/weather" className="nav-link"><i className="bi bi-cloud-sun"></i> Weather</Link>
                         </li>
-                        <form className="d-flex mx-2" role="search" onSubmit={handleNewsTopicFormSubmit}>
+                        <li className="nav-item">
                             <div className="input-group border border-3 border-primary rounded-3">
                                 <Link to="/news" className="btn btn-secondary rounded-start"><i className="bi bi-newspaper text-light"></i></Link>
-                                <input ref={newsTopic} className="form-control" type="text" placeholder="Search the news" aria-label="Search" />
-                                <button className="btn btn-secondary rounded-end" onClick={handleNewsTopicButtonClick}>
+                                <input ref={newsTopic} className="form-control" type="text" placeholder="Search the news" aria-label="Search" onKeyUp={handleNewsTopicInputKeyUp} />
+                                <button className="btn btn-secondary rounded-end" type="submit" onClick={handleNewsTopicButtonClick}>
                                     <i className="bi bi-search text-light"></i>
                                 </button>
                             </div>
-                        </form>
+                        </li>
                         <li className="nav-item">
                             <Link to="/calculator" className="nav-link"><i className="bi bi-calculator"></i> Calculator</Link>
                         </li>
