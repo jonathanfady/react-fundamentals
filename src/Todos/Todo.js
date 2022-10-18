@@ -1,13 +1,29 @@
-export default function Todo({ todo, dispatch }) {
+export default function Todo({ todo, dispatch, nextTodo }) {
     return (
-        <li key={todo.id} className={"list-group-item " + (todo.complete ? 'list-group-item-success' : 'list-group-item-danger')}>
-            <span className="mx-2">{todo.name}</span>
-            <button className="btn btn-outline-dark mx-2" onClick={() => dispatch({ type: 'toggle-todo', payload: { id: todo.id } })}>
-                Toggle
-            </button>
-            <button className="btn btn-outline-danger mx-2" onClick={() => dispatch({ type: 'delete-todo', payload: { id: todo.id } })}>
-                Delete
-            </button>
-        </li>
+        <>
+            <div className="col">
+                <div className="card text-start" style={{ opacity: '95%' }}>
+                    <div className="card-header d-flex justify-content-between">
+                        <h5 className="card-title">{todo.name}</h5>
+                        <button className="btn btn-close"
+                            onClick={() => dispatch({ type: 'delete-todo', payload: { id: todo.id } })}>
+                        </button>
+                    </div>
+                    <div className="card-body">
+                        <p className="card-text">{todo.description}</p>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <button className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target={`#editTodoModal${todo.id}`}>
+                                Edit
+                            </button>
+                            <button className="btn btn-outline-dark"
+                                onClick={() => dispatch({ type: 'update-todo', payload: { id: todo.id, status: nextTodo } })}>
+                                Update
+                            </button>
+                            <small>{new Date(todo.id).toDateString()}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }

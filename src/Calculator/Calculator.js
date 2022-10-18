@@ -94,7 +94,7 @@ export default function Calculator(props) {
 
     return (
         <>
-            <div className="container mt-3 px-0 justify-content-center border border-4 border-secondary rounded-1" style={{ maxWidth: '40rem' }}>
+            <div className="container px-0 justify-content-center border border-4 border-secondary rounded-1" style={{ maxWidth: '40rem' }}>
                 <div className="col-12 p-2 bg-dark text-light text-end text-break">
                     <div className="text-muted h4" style={{ minHeight: '3rem' }}>{formatOperand(previousOperand)} {operation}</div>
                     <div className="h1 mb-0" style={{ minHeight: '3rem' }}>{formatOperand(currentOperand)}</div>

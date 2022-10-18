@@ -21,7 +21,7 @@ function Counter(props) {
     }
 
     return (
-        <div className="container text-center mt-3">
+        <div className="container text-center">
             <div className="d-flex flex-row justify-content-center ">
                 <button className="px-4 btn btn-lg rounded-0 btn-outline-secondary" onClick={decrement}>-</button>
                 <div className="px-4 h1">{state.count}</div>

@@ -5,7 +5,7 @@ export default function App(props) {
     return (
         <>
             <Navbar />
-            <div className="container-fluid">
+            <div className="container-fluid mt-3">
                 <Outlet />
             </div>
         </>
