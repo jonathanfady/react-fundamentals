@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function EditTodo({ todo, dispatch }) {
     const [name, setName] = useState(todo.name);
     const [description, setDescription] = useState(todo.description);
     const [status, setStatus] = useState(todo.status);
+
+    useEffect(() => {
+        setName(todo.name);
+        setDescription(todo.description);
+        setStatus(todo.status);
+    }, [todo]);
 
     function handleNameChange(e) {
         setName(e.target.value);
@@ -56,7 +62,7 @@ export default function EditTodo({ todo, dispatch }) {
                             <select id="editTodoStatus"
                                 value={status}
                                 onChange={handleStatusChange}
-                                className="form-select" aria-label="Todo Status">
+                                className="form-select pb-1" aria-label="Todo Status">
                                 <option value="to-do">To Do</option>
                                 <option value="in-progress">In Progress</option>
                                 <option value="done">Done</option>
