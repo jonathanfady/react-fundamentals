@@ -12,6 +12,7 @@ import Todos from './Todos/Todos';
 import Weather from './Weather/Weather';
 import News from './News';
 import Calculator from './Calculator/Calculator';
+import Chess from './Chess/Chess';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -28,6 +29,7 @@ root.render(
                         <Route path=":newsTopic" element={<News />} />
                     </Route>
                     <Route path="/calculator" element={<Calculator />} />
+                    <Route path="/chess" element={<Chess />} />
                 </Route>
             </Routes>
         </Router>
