@@ -1,7 +1,10 @@
-import { useState, useReducer } from 'react';
-import Todo from './Todo';
+import { useReducer } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
 import AddTodo from './AddTodo';
 import EditTodo from './EditTodo';
+import TodoList from './TodoList';
 
 function reducer(todos, { type, payload }) {
     switch (type) {
@@ -38,36 +41,14 @@ export default function Todos(props) {
     return (
         <>
             <AddTodo dispatch={dispatch} />
-            <div className="row m-2 g-2 text-center" style={{ minHeight: '30rem' }}>
-                <div className="col bg-danger opacity-75">
-                    <h2 className="m-1 p-1 bg-light text-danger"><i className="bi bi-list-ol"></i> Todo</h2>
-                    <div className="row row-cols-1 g-2 m-1">
-                        {todos.map(todo => {
-                            if (todo.status === "to-do")
-                                return <Todo todo={todo} dispatch={dispatch} nextTodo="in-progress" />
-                        })}
-                    </div>
+            <DndProvider backend={HTML5Backend}>
+                <div className="row mt-2">
+                    <TodoList todos={todos.filter((todo) => todo.status === "to-do")} status="to-do" dispatch={dispatch} />
+                    <TodoList todos={todos.filter((todo) => todo.status === "in-progress")} status="in-progress" dispatch={dispatch} />
+                    <TodoList todos={todos.filter((todo) => todo.status === "done")} status="done" dispatch={dispatch} />
                 </div>
-                <div className="col bg-warning opacity-75">
-                    <h2 className="m-1 p-1 bg-light text-warning"><i className="bi bi-hourglass-split"></i> In Progress</h2>
-                    <div className="row row-cols-1 g-2 m-1">
-                        {todos.map(todo => {
-                            if (todo.status === "in-progress")
-                                return <Todo todo={todo} dispatch={dispatch} nextTodo="done" />
-                        })}
-                    </div>
-                </div>
-                <div className="col bg-success opacity-75">
-                    <h2 className="m-1 p-1 bg-light text-success"><i className="bi bi-check2-all"></i> Done</h2>
-                    <div className="row row-cols-1 g-2 m-1">
-                        {todos.map(todo => {
-                            if (todo.status === "done")
-                                return <Todo todo={todo} dispatch={dispatch} nextTodo="to-do" />
-                        })}
-                    </div>
-                </div>
-            </div>
-            {todos.map(todo => { return <EditTodo todo={todo} dispatch={dispatch} /> })}
+            </DndProvider>
+            {todos.map(todo => <EditTodo todo={todo} dispatch={dispatch} />)}
         </>
     )
 }
