@@ -42,7 +42,7 @@ export default function Todos(props) {
         <>
             <AddTodo dispatch={dispatch} />
             <DndProvider backend={HTML5Backend}>
-                <div className="row mt-2">
+                <div className="d-flex text-break mt-2">
                     <TodoList todos={todos.filter((todo) => todo.status === "to-do")} status="to-do" dispatch={dispatch} />
                     <TodoList todos={todos.filter((todo) => todo.status === "in-progress")} status="in-progress" dispatch={dispatch} />
                     <TodoList todos={todos.filter((todo) => todo.status === "done")} status="done" dispatch={dispatch} />
