@@ -5,6 +5,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import AddTodo from './AddTodo';
 import EditTodo from './EditTodo';
 import TodoList from './TodoList';
+import { TodoProvider } from './TodoContext';
 
 function reducer(todos, { type, payload }) {
     switch (type) {
@@ -39,7 +40,7 @@ export default function Todos(props) {
     const [todos, dispatch] = useReducer(reducer, []);
 
     return (
-        <>
+        <TodoProvider>
             <AddTodo dispatch={dispatch} />
             <DndProvider backend={HTML5Backend}>
                 <div className="d-flex text-break mt-2">
@@ -48,7 +49,7 @@ export default function Todos(props) {
                     <TodoList todos={todos.filter((todo) => todo.status === "done")} status="done" dispatch={dispatch} />
                 </div>
             </DndProvider>
-            {todos.map(todo => <EditTodo key={todo.id} todo={todo} dispatch={dispatch} />)}
-        </>
+            <EditTodo dispatch={dispatch} />
+        </TodoProvider>
     )
 }

@@ -1,11 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import { useCurrentTodo } from './TodoContext';
 
-export default function EditTodo({ todo, dispatch }) {
-    const name = useRef(todo.name)
-    const description = useRef(todo.description)
-    const status = useRef(todo.status)
+export default function EditTodo({ dispatch }) {
+    const todo = useCurrentTodo()
+    const name = useRef()
+    const description = useRef()
+    const status = useRef()
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         name.current.value = todo.name;
         description.current.value = todo.description;
         status.current.value = todo.status;
@@ -28,7 +30,7 @@ export default function EditTodo({ todo, dispatch }) {
     }
 
     return (
-        <div className="modal fade" id={"editTodoModal" + todo.id} tabIndex="-1" aria-labelledby="editTodoModalLabel" aria-hidden="true">
+        <div className="modal fade" id="editTodoModal" tabIndex="-1" aria-labelledby="editTodoModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -36,7 +38,7 @@ export default function EditTodo({ todo, dispatch }) {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <div className="col-4 form-floating mb-3">
+                        <div className="col-8 form-floating mb-3">
                             <input type="text" id="editTodoName"
                                 ref={name}
                                 className="form-control" placeholder="Todo Name" />
