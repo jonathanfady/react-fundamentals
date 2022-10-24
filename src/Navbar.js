@@ -49,7 +49,7 @@ export default function Navbar(props) {
                             <Link to="/calculator" className="nav-link"><i className="bi bi-calculator"></i> Calculator</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/chess" className="nav-link"> Chess</Link>
+                            <Link to="/chess" className="nav-link"><i className="bi bi-joystick"></i> Chess</Link>
                         </li>
                     </ul>
                 </div>

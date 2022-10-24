@@ -48,7 +48,7 @@ export default function Todos(props) {
                     <TodoList todos={todos.filter((todo) => todo.status === "done")} status="done" dispatch={dispatch} />
                 </div>
             </DndProvider>
-            {todos.map(todo => <EditTodo todo={todo} dispatch={dispatch} />)}
+            {todos.map(todo => <EditTodo key={todo.id} todo={todo} dispatch={dispatch} />)}
         </>
     )
 }

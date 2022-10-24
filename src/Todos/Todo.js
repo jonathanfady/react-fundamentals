@@ -3,7 +3,7 @@ import { useDrag } from "react-dnd"
 export default function Todo({ todo, dispatch }) {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'todo',
-        item: { id: todo.id },
+        item: { id: todo.id, status: todo.status },
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging()
         })
@@ -23,9 +23,9 @@ export default function Todo({ todo, dispatch }) {
                         <p className="card-text">{todo.description}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <button className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target={`#editTodoModal${todo.id}`}>
-                                Edit
+                                <i className="bi bi-pencil-square"></i> Edit
                             </button>
-                            <small>{new Date(todo.id).toDateString()}</small>
+                            <small>Created on : <strong>{new Date(todo.id).toDateString()}</strong></small>
                         </div>
                     </div>
                 </div>
