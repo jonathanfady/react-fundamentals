@@ -12,10 +12,11 @@ export function toKebab(string) {
 }
 
 export function toTitle(string) {
-    return toKebab(string)
+    return string ? toKebab(string)
         .split('-')
         .map(word => {
             return word.slice(0, 1).toUpperCase() + word.slice(1)
         })
         .join(' ')
+        : ""
 }

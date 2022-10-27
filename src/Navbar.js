@@ -51,6 +51,9 @@ export default function Navbar(props) {
                         <li className="nav-item">
                             <Link to="/chess" className="nav-link"><i className="bi bi-joystick"></i> Chess</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/pokemon" className="nav-link"><i className="bi bi-nintendo-switch"></i> Pokemon</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

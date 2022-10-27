@@ -13,6 +13,7 @@ import Weather from './Weather/Weather';
 import News from './News';
 import Calculator from './Calculator/Calculator';
 import Chess from './Chess/Chess';
+import Pokemons from './Pokemon/Pokemons';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -30,6 +31,7 @@ root.render(
                     </Route>
                     <Route path="/calculator" element={<Calculator />} />
                     <Route path="/chess" element={<Chess />} />
+                    <Route path="/pokemon" element={<Pokemons />} />
                 </Route>
             </Routes>
         </Router>
