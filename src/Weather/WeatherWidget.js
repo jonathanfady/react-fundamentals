@@ -10,7 +10,7 @@ class WeatherWidget extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.location == prevProps.location) return;
+        if (this.props.location === prevProps.location) return;
 
         console.log('component updated');
 
@@ -31,7 +31,7 @@ class WeatherWidget extends Component {
                     {this.state.data.location.localtime}
                 </div>
                 <div className="card-body">
-                    <img src={this.state.data.current.weather_icons[0]} width="64" />
+                    <img src={this.state.data.current.weather_icons[0]} width="64" alt="" />
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">Temperature: {this.state.data.current.temperature} °C</li>
                         <li className="list-group-item">{this.state.data.current.weather_descriptions[0]}</li>

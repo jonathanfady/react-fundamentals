@@ -13,7 +13,7 @@ function WeatherApp() {
 
     return (
         <>
-            <h5>Weather from <a href="http://api.weatherstack.com/" target="_blank">http://api.weatherstack.com/</a></h5>
+            <h5>Weather from <a href="http://api.weatherstack.com/" target="_blank" rel="noreferrer">http://api.weatherstack.com/</a></h5>
             <div className="row justify-content-center g-2">
                 <form className="row justify-content-center g-2">
                     <div className="col-4">

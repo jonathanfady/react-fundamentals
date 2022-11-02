@@ -1,9 +1,9 @@
-import { useState, useReducer } from 'react';
+import { useReducer } from 'react';
 
 function reducer(state, action) {
-    if (action == 'increment')
+    if (action === 'increment')
         return { count: state.count + 1 };
-    else if (action == 'decrement')
+    else if (action === 'decrement')
         return { count: state.count - 1 };
     else
         return state;
