@@ -14,6 +14,7 @@ import News from './News';
 import Calculator from './Calculator/Calculator';
 import Chess from './Chess/Chess';
 import Pokemons from './Pokemon/Pokemons';
+import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -32,6 +33,7 @@ root.render(
                     <Route path="/calculator" element={<Calculator />} />
                     <Route path="/chess" element={<Chess />} />
                     <Route path="/pokemon" element={<Pokemons />} />
+                    <Route path="/currency-converter" element={<CurrencyConverter />} />
                 </Route>
             </Routes>
         </Router>

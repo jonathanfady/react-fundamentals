@@ -13,7 +13,7 @@ export default function Navbar(props) {
     }
 
     function handleNewsTopicButtonClick() {
-        navigate(`/news/${toKebab(newsTopic.current.value || "")}`);
+        navigate(`/news/${toKebab(newsTopic.current.value)}`);
         newsTopic.current.value = "";
         newsTopic.current.focus();
     }
@@ -53,6 +53,9 @@ export default function Navbar(props) {
                         </li>
                         <li className="nav-item">
                             <NavLink to="/pokemon" className="nav-link"><i className="bi bi-nintendo-switch"></i> Pokemon</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/currency-converter" className="nav-link"><i className="bi bi-currency-exchange"></i> Currency Converter</NavLink>
                         </li>
                     </ul>
                 </div>
