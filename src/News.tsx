@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { toTitle } from "./Cases";
 
-export default function News(props) {
+export default function News() {
     const params = useParams();
     const [news, setNews] = useState();
 

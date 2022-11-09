@@ -9,7 +9,7 @@ function reducer(state, action) {
         return state;
 }
 
-function Counter(props) {
+function Counter() {
     const [state, dispatch] = useReducer(reducer, { count: 0 });
 
     function increment() {

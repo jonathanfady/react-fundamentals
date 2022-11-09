@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toKebab } from './Cases';
 
-export default function Navbar(props) {
+export default function Navbar() {
     const newsTopic = useRef();
     const navigate = useNavigate();
 
