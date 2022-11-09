@@ -6,6 +6,7 @@ export default function EditTodo({ dispatch }) {
     const name = useRef()
     const description = useRef()
     const status = useRef()
+    const closeButton = useRef()
 
     useLayoutEffect(() => {
         name.current.value = todo.name;
@@ -14,7 +15,12 @@ export default function EditTodo({ dispatch }) {
     }, [todo]);
 
     function handleClick() {
+        name.current.classList.remove("is-invalid");
+        description.current.classList.remove("is-invalid");
+
         if ((name.current.value === "") || (description.current.value === "")) {
+            if (name.current.value === "") name.current.classList.add("is-invalid");
+            if (description.current.value === "") description.current.classList.add("is-invalid");
             return false;
         }
 
@@ -27,6 +33,7 @@ export default function EditTodo({ dispatch }) {
                 status: status.current.value
             }
         });
+        closeButton.current.click()
     }
 
     return (
@@ -63,7 +70,8 @@ export default function EditTodo({ dispatch }) {
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleClick}>Save changes</button>
+                        <button type="button" className="btn btn-primary" onClick={handleClick}>Save changes</button>
+                        <button ref={closeButton} type="button" className="d-none" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

@@ -21,12 +21,10 @@ function Counter(props) {
     }
 
     return (
-        <div className="container text-center">
-            <div className="d-flex flex-row justify-content-center ">
-                <button className="px-4 btn btn-lg rounded-0 btn-outline-secondary" onClick={decrement}>-</button>
-                <div className="px-4 h1">{state.count}</div>
-                <button className="px-4 btn btn-lg rounded-0 btn-outline-primary" onClick={increment}>+</button>
-            </div>
+        <div className="d-flex justify-content-center">
+            <button className="btn btn-lg rounded-0 btn-outline-secondary" onClick={decrement}>-</button>
+            <div className="px-5 h1">{state.count}</div>
+            <button className="btn btn-lg rounded-0 btn-outline-primary" onClick={increment}>+</button>
         </div>
     )
 }
