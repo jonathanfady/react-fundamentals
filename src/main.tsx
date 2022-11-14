@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+import './custom.scss';
 
 import App from './App'
 import Home from './Home';
@@ -15,6 +16,7 @@ import Calculator from './Calculator/Calculator';
 import Chess from './Chess/Chess';
 import Pokemons from './Pokemon/Pokemons';
 import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
+import Hangman from './Hangman/Hangman';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -32,6 +34,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/chess" element={<Chess />} />
           <Route path="/pokemon" element={<Pokemons />} />
           <Route path="/currency-converter" element={<CurrencyConverter />} />
+          <Route path="/hangman" element={<Hangman />} />
         </Route>
       </Routes>
     </Router>

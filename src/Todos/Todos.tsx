@@ -36,7 +36,7 @@ function addTodo(payload) {
     return { id: Date.now(), name: payload.name, description: payload.description, status: payload.status }
 }
 
-export default function Todos(props) {
+export default function Todos() {
     const [todos, dispatch] = useReducer(reducer, []);
 
     return (

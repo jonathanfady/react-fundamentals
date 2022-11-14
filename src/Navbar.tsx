@@ -6,8 +6,8 @@ export default function Navbar() {
     const newsTopic = useRef();
     const navigate = useNavigate();
 
-    function handleNewsTopicInputKeyUp(e) {
-        if (e.key === "Enter") {
+    function handleNewsTopicInputKeyUp(event: KeyboardEvent) {
+        if (event.key === "Enter") {
             handleNewsTopicButtonClick();
         }
     }
@@ -56,6 +56,9 @@ export default function Navbar() {
                         </li>
                         <li className="nav-item">
                             <NavLink to="/currency-converter" className="nav-link"><i className="bi bi-currency-exchange"></i> Currency Converter</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/hangman" className="nav-link"><i className="bi bi-h-square"></i> Hangman</NavLink>
                         </li>
                     </ul>
                 </div>
