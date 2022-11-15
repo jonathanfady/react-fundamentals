@@ -41,11 +41,11 @@ export function Keyboard({ activeLetters, inactiveLetters, addGuessedLetter, isD
             KEYS.map((key, index) => {
                 const isActive = activeLetters.includes(key)
                 const isInactive = inactiveLetters.includes(key)
+
                 return <button
-                    className={`btn btn-lg rounded-0 text-uppercase ${isActive ? "btn-success" : isInactive ? "btn-outline-danger" : "btn-outline-dark"}`}
+                    className={`btn btn-lg rounded-0 text-uppercase ${isActive ? "btn-success" : isInactive ? "btn-outline-danger" : "btn-outline-dark"} ${(isActive || isInactive || isDisabled) ? "disabled" : ""}`}
                     type="button"
                     key={key}
-                    disabled={isActive || isInactive || isDisabled}
                     onClick={() => addGuessedLetter(key)}>
                     {key}
                 </button>
